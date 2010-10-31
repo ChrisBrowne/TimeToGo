@@ -4,7 +4,12 @@
 
     public class Instant
     {
-        public static readonly Instant Default = new Instant(DateTime.Now.AddMonths(3), "three months from now");
+        public static readonly Instant Default = new Instant(DateTime.Now, "Default");
+
+        public Instant()
+        {
+            
+        }
 
         public Instant(DateTime time, string description)
         {

@@ -5,10 +5,12 @@
     public class InstantViewModel
     {
         private readonly Instant _instant;
+        private readonly EventAggregator _eventAggregator;
 
-        public InstantViewModel(Instant instant)
+        public InstantViewModel(Instant instant, EventAggregator eventAggregator)
         {
             _instant = instant;
+            _eventAggregator = eventAggregator;
         }
 
         public DateTime Time { get { return _instant.Time; } }
@@ -16,7 +18,7 @@
 
         public void StartCountDown()
         {
-            // raise an event onthe event hub to start counting down to this command...
+            _eventAggregator.Publish(new CountDownToTimeMessage(_instant));
         }
     }
 }

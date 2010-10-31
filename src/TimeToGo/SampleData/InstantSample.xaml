@@ -1,0 +1,6 @@
+﻿<local:Instant 
+    xmlns:local="clr-namespace:TimeToGo" 
+    local:Description="Sample count down" 
+    Time="12:34:56 1 Jan 2010">
+    
+</local:Instant>

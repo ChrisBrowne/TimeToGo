@@ -61,10 +61,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CountDownControl.xaml.cs">
-      <DependentUpon>CountDownControl.xaml</DependentUpon>
+    <Compile Include="CountDownView.xaml.cs">
+      <DependentUpon>CountDownView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CountDownToTimeMessage.cs" />
     <Compile Include="CountDownViewModel.cs" />
+    <Compile Include="EventAggregator.cs" />
+    <Compile Include="IHandle`1.cs" />
     <Compile Include="Instant.cs" />
     <Compile Include="InstantView.xaml.cs">
       <DependentUpon>InstantView.xaml</DependentUpon>
@@ -94,7 +97,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="CountDownControl.xaml">
+    <Page Include="CountDownView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <DesignData Include="SampleData\InstantSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </DesignData>
     <Page Include="TimeListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +129,9 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Icons\appbar.check.rest.png" />
+    <Resource Include="Icons\appbar.delete.rest.png" />
+    <Resource Include="Icons\appbar.edit.rest.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>

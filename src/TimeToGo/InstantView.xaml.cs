@@ -1,5 +1,6 @@
 ﻿namespace TimeToGo
 {
+    using System;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -17,13 +18,17 @@
 
         private void GoButtonClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Go!");
             ViewModel.StartCountDown();
         }
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Edit!");
+        }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Delete!");
         }
     }
 }

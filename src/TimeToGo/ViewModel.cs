@@ -14,10 +14,14 @@
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
-                if (!Deployment.Current.Dispatcher.CheckAccess())
+                Action action = () => handler(this, new PropertyChangedEventArgs(propertyName));
+                if (Deployment.Current.Dispatcher.CheckAccess())
                 {
-                    Deployment.Current.Dispatcher.BeginInvoke(
-                        () => handler(this, new PropertyChangedEventArgs(propertyName)));
+                    action();
+                }
+                else
+                {
+                    Deployment.Current.Dispatcher.BeginInvoke(action);
                 }
             }
         }

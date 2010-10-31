@@ -6,17 +6,16 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:TimeToGo" 
-    xmlns:Data="clr-namespace:System.Windows.Data;assembly=System.Windows" 
     mc:Ignorable="d" 
     d:DesignWidth="480" 
     d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="Portrait" 
+    Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -24,7 +23,7 @@
         <Grid.Resources>
         </Grid.Resources>
         
-        <controls:Pivot Title="time to go">
+        <controls:Pivot Title="time to go" x:Name="MainPivot">
             <controls:PivotItem Header="current">
                 <local:CountDownControl DataContext="{Binding CurrentCountDown}" />
             </controls:PivotItem>

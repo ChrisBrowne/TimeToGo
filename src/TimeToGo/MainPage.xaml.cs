@@ -9,7 +9,13 @@
         {
             InitializeComponent();
 
-            DataContext = new MainPageViewModel();
+            EventAggregator eventAggregator = new EventAggregator();
+            DataContext = new MainPageViewModel(
+                eventAggregator,
+                new CountDownViewModel(Instant.Default),
+                new TimeListViewModel(
+                    new InstantViewModelFactory(eventAggregator)),
+                this);
         }
     }
 }
