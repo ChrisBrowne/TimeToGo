@@ -1,6 +1,7 @@
 ﻿namespace TimeToGo
 {
     using Microsoft.Phone.Controls;
+    using Services;
 
     public partial class MainPage : PhoneApplicationPage
     {
@@ -10,12 +11,12 @@
             InitializeComponent();
 
             EventAggregator eventAggregator = new EventAggregator();
+
             DataContext = new MainPageViewModel(
                 eventAggregator,
                 new CountDownViewModel(Instant.Default),
-                new TimeListViewModel(
-                    new InstantViewModelFactory(eventAggregator)),
-                this);
+                new InstantListViewModel(
+                    new InstantViewModelFactory(eventAggregator, new TimeToGoNavigationService())));
         }
     }
 }

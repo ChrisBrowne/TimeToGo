@@ -3,7 +3,7 @@
     using System;
     using System.Threading;
 
-    public class CountDownViewModel : ViewModel<CountDownViewModel>
+    public class CountDownViewModel : ViewModel
     {
         private Instant _instant;
         private string _currentCountDownTime;
@@ -17,7 +17,7 @@
 
         private void TimerTick(object state)
         {
-            UpdateTime();
+            UpdateTime();   
         }
 
         private void UpdateTime()
@@ -33,7 +33,7 @@
                 if (_currentCountDownTime != value)
                 {
                     _currentCountDownTime = value;
-                    OnPropertyChanged(x => x.CurrentCountDownTime);
+                    OnPropertyChanged(() => CurrentCountDownTime);
                 }
             }
         }
@@ -50,7 +50,7 @@
             {
                 _instant = value;
                 UpdateTime();
-                OnPropertyChanged(x => x.Description);
+                OnPropertyChanged(() => Description);
             }
         }
     }

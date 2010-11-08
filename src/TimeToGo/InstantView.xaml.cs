@@ -3,6 +3,7 @@
     using System;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Navigation;
 
     public partial class InstantView : UserControl
     {
@@ -18,12 +19,12 @@
 
         private void GoButtonClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.StartCountDown();
+            ViewModel.Select();
         }
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Edit!");
+            ViewModel.Edit();
         }
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)

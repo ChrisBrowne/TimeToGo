@@ -1,24 +1,37 @@
 ﻿namespace TimeToGo
 {
-    public class MainPageViewModel : IHandle<CountDownToTimeMessage>
-    {
-        private readonly MainPage _view;
+    using Services;
 
-        public MainPageViewModel(EventAggregator eventAggregator, CountDownViewModel countDownViewModel, TimeListViewModel timeListViewModel, MainPage view)
+    public class MainPageViewModel : ViewModel, IHandle<CountDownToInstantMessage>
+    {
+        private int _selectedPivotPageIndex;
+
+        public MainPageViewModel(EventAggregator eventAggregator, CountDownViewModel countDownViewModel, InstantListViewModel instantListViewModel)
         {
-            _view = view;
             eventAggregator.Subscribe(this);
             CurrentCountDown = countDownViewModel;
-            TimeList = timeListViewModel;
+            InstantList = instantListViewModel;
         }
 
         public CountDownViewModel CurrentCountDown { get; private set; }
-        public TimeListViewModel TimeList { get; private set; }
+        public InstantListViewModel InstantList { get; private set; }
+        public int SelectedPivotPageIndex
+        {
+            get { return _selectedPivotPageIndex; }
+            set
+            {
+                if (_selectedPivotPageIndex != value)
+                {
+                    _selectedPivotPageIndex = value;
+                    OnPropertyChanged(() => SelectedPivotPageIndex);
+                }
+            }
+        }
 
-        void IHandle<CountDownToTimeMessage>.Handle(CountDownToTimeMessage message)
+        void IHandle<CountDownToInstantMessage>.Handle(CountDownToInstantMessage message)
         {
             CurrentCountDown.Instant = message.Instant;
-            _view.MainPivot.SelectedIndex = 0;
+            SelectedPivotPageIndex = 0;
         }
     }
 }

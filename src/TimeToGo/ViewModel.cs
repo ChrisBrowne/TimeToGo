@@ -5,7 +5,7 @@
     using System.Linq.Expressions;
     using System.Windows;
 
-    public abstract class ViewModel<TViewModel> : INotifyPropertyChanged
+    public abstract class ViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,7 +26,7 @@
             }
         }
 
-        protected void OnPropertyChanged<TReturn>(Expression<Func<TViewModel, TReturn>> expr)
+        protected void OnPropertyChanged<TProperty>(Expression<Func<TProperty>> expr)
         {
             string propertyName = ((MemberExpression) expr.Body).Member.Name;
             OnPropertyChanged(propertyName);

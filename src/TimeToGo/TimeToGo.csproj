@@ -64,19 +64,26 @@
     <Compile Include="CountDownView.xaml.cs">
       <DependentUpon>CountDownView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CountDownToTimeMessage.cs" />
+    <Compile Include="CountDownToInstantMessage.cs" />
     <Compile Include="CountDownViewModel.cs" />
-    <Compile Include="EventAggregator.cs" />
-    <Compile Include="IHandle`1.cs" />
-    <Compile Include="Instant.cs" />
+    <Compile Include="InstantEditViewModel.cs" />
+    <Compile Include="Services\ITimeToGoNavigationService.cs" />
+    <Compile Include="Services\EventAggregator.cs" />
+    <Compile Include="Services\IHandle`1.cs" />
+    <Compile Include="Model\Instant.cs" />
+    <Compile Include="InstantEditView.xaml.cs">
+      <DependentUpon>InstantEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InstantView.xaml.cs">
       <DependentUpon>InstantView.xaml</DependentUpon>
     </Compile>
     <Compile Include="InstantViewModel.cs" />
+    <Compile Include="Services\InstantViewModelFactory.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPageViewModel.cs" />
+    <Compile Include="Services\TimeToGoNavigationService.cs" />
     <Compile Include="ViewBox\NumericExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewBox\Resources.Designer.cs">
@@ -85,10 +92,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewBox\StretchDirection.cs" />
-    <Compile Include="TimeListControl.xaml.cs">
-      <DependentUpon>TimeListControl.xaml</DependentUpon>
+    <Compile Include="InstantListView.xaml.cs">
+      <DependentUpon>InstantListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimeListViewModel.cs" />
+    <Compile Include="InstantListViewModel.cs" />
     <Compile Include="ViewBox\Viewbox.cs" />
     <Compile Include="ViewModel.cs" />
   </ItemGroup>
@@ -98,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="CountDownView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InstantEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,7 +124,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </DesignData>
-    <Page Include="TimeListControl.xaml">
+    <Page Include="InstantListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
